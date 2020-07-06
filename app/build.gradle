@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.jai.blueprint"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompactVersion"
+    implementation "androidx.core:core-ktx:$rootProject.appCompactVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constarainVersion"
+    implementation "com.google.android.material:material:$rootProject.googleMaterialVersion"
+
+    // network
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+
+    // database
+    implementation "androidx.room:room-rxjava2:$rootProject.roomDatabase"
+    implementation "androidx.room:room-runtime:$rootProject.roomDatabase"
+    kapt "androidx.room:room-compiler:$rootProject.roomDatabase"
+
+    // font
+    implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+
+    // image
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
+    // custom view
+    implementation "com.github.ivbaranov:materialfavoritebutton:$rootProject.materialFavButtonVersion"
+
+    // parser
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+    // view model
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.viewModelVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.viewModelVersion"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.ktxVersion"
+
+    // work manager
+    implementation "androidx.work:work-runtime-ktx:$rootProject.workManagerVersion"
+
+    //navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.nav_version"
+
+    //pagination
+    implementation "androidx.paging:paging-runtime:$rootProject.nav_version"
+
+    //shimmer effect
+    implementation "com.facebook.shimmer:shimmer:$rootProject.shimmerEffectVersion"
+
+    //viewpager 2
+    implementation "androidx.viewpager2:viewpager2:$rootProject.viewpager2Version"
+
+    //hilt DI injector
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.hiltLifeCycleVersion"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$rootProject.hiltLifeCycleVersion"
+
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
