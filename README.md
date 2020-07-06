@@ -3,7 +3,6 @@
 ### This sample crick app implements MVVM architecture using Coroutines,Jetpack Navigation,Hilt,Room,Retrofit,Jetpack Livedata and Databinding.
 ***
 
-
 ![](https://user-images.githubusercontent.com/17040639/86581889-5e890f00-bf9e-11ea-9f2c-c685837f9aa7.png)
 
 ***
